@@ -1,4 +1,8 @@
-import java.util.Comparator;
+package homeworkTwo.data;
+
+import homeworkTwo.interfaces.NameGenerationInterface;
+import homeworkTwo.interfaces.RunCarInterface;
+
 import java.util.Objects;
 
 public class Car implements NameGenerationInterface, RunCarInterface, Comparable<Car> {
@@ -9,6 +13,9 @@ public class Car implements NameGenerationInterface, RunCarInterface, Comparable
     private String typeEngine;
     private String typeFuel;
     private String color;
+
+    public Car() {
+    }
 
 
     public Car(long yearOfCreation, String model, String ownerFullName, float engineVolume, String typeFuel, String typeEngine, String color) {
@@ -27,33 +34,6 @@ public class Car implements NameGenerationInterface, RunCarInterface, Comparable
         this.ownerFullName = ownerFullName;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return yearOfCreation == car.yearOfCreation && Float.compare(car.engineVolume, engineVolume) == 0 && model.equals(car.model) && ownerFullName.equals(car.ownerFullName) && typeEngine.equals(car.typeEngine) && typeFuel.equals(car.typeFuel) && color.equals(car.color);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(yearOfCreation, model, ownerFullName, engineVolume, typeEngine, typeFuel, color);
-    }
-
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "yearOfCreation=" + yearOfCreation +
-                ", model='" + model + '\'' +
-                ", ownerFullName='" + ownerFullName + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", typeEngine='" + typeEngine + '\'' +
-                ", typeFuel='" + typeFuel + '\'' +
-                ", color='" + color + '\'' +
-                '}' + "\n";
-    }
 
     public long getYearOfCreation() {
         return yearOfCreation;
@@ -112,12 +92,12 @@ public class Car implements NameGenerationInterface, RunCarInterface, Comparable
     }
 
     @Override
-    public void Run() {
+    public void run() {
         System.out.println("Car run!");
     }
 
     @Override
-    public int Move(int speed) {
+    public int move(int speed) {
         return speed;
     }
 
@@ -126,4 +106,32 @@ public class Car implements NameGenerationInterface, RunCarInterface, Comparable
     public int compareTo(Car o) {
         return getOwnerFullName().compareTo(o.getOwnerFullName());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return yearOfCreation == car.yearOfCreation && Float.compare(car.engineVolume, engineVolume) == 0 && model.equals(car.model) && ownerFullName.equals(car.ownerFullName) && typeEngine.equals(car.typeEngine) && typeFuel.equals(car.typeFuel) && color.equals(car.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(yearOfCreation, model, ownerFullName, engineVolume, typeEngine, typeFuel, color);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "yearOfCreation=" + yearOfCreation +
+                ", model='" + model + '\'' +
+                ", ownerFullName='" + ownerFullName + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", typeEngine='" + typeEngine + '\'' +
+                ", typeFuel='" + typeFuel + '\'' +
+                ", color='" + color + '\'' +
+                '}' + "\n";
+    }
+
 }

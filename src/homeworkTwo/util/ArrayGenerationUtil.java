@@ -1,5 +1,7 @@
-import java.util.Comparator;
-import java.util.Random;
+package homeworkTwo.util;
+
+import homeworkTwo.data.Car;
+import homeworkTwo.interfaces.NameGenerationInterface;
 
 public class ArrayGenerationUtil implements NameGenerationInterface {
 
@@ -7,7 +9,7 @@ public class ArrayGenerationUtil implements NameGenerationInterface {
     public static Car[] ArrayGenerationCar(int count) {
 
         Car[] array = new Car[count];
-        String model = null;
+        String model;
         for (int i = 0; i < array.length; i++) {
 
             int random = (int) (Math.random() * namesCar.length);
@@ -15,7 +17,7 @@ public class ArrayGenerationUtil implements NameGenerationInterface {
             if (random <= modelCar.length - 1) {
                 model = modelCar[random];
             } else {
-                model = null;
+                model = "not value";
             }
 
             Car car = new Car(model, name);

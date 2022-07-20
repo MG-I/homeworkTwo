@@ -1,5 +1,10 @@
-import java.util.*;
-import java.util.function.Consumer;
+package homeworkTwo;
+
+import homeworkTwo.data.Car;
+import homeworkTwo.util.ArrayGenerationUtil;
+
+import java.util.Arrays;
+
 
 public class Main {
 
@@ -10,8 +15,8 @@ public class Main {
         Arrays.sort(cars, Car::compareTo);
         System.out.println(Arrays.toString(cars));
 
-        cars[0].Run();
-        System.out.println(cars[0].Move(10));
+        cars[0].run();
+        System.out.println(cars[0].move(10));
     }
 
 
